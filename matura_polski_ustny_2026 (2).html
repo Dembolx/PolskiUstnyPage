@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matura ustna — język polski 2026–2028</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1208;
+  --ink2: #3d3020;
+  --ink3: #6b5c45;
+  --paper: #faf8f4;
+  --paper2: #f2ede4;
+  --paper3: #e8e0d0;
+  --gold: #b8860b;
+  --gold-light: #f5e9c8;
+  --gold-mid: #d4a931;
+  --red: #8b2020;
+  --red-light: #fbeaea;
+  --green: #2a5c35;
+  --green-light: #e5f0e8;
+  --blue: #1a3a5c;
+  --blue-light: #e4edf5;
+  --shadow: 0 2px 12px rgba(26,18,8,0.08);
+  --shadow-lg: 0 4px 24px rgba(26,18,8,0.14);
+  --radius: 4px;
+  --radius-lg: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--ink);
+  color: #fff;
+  padding: 28px 32px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    rgba(255,255,255,0.025) 12px,
+    rgba(255,255,255,0.025) 13px
+  );
+}
+.header-inner { position: relative; max-width: 860px; margin: 0 auto; }
+.header-eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+.header-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 6px;
+}
+.header-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.header-pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── NAV TABS ── */
+.nav-bar {
+  background: var(--ink2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.nav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 14px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all .2s;
+  font-family: 'Source Sans 3', sans-serif;
+  letter-spacing: .3px;
+}
+.nav-tab:hover:not(.active) { color: rgba(255,255,255,0.85); }
+.nav-tab.active {
+  color: var(--gold-mid);
+  border-bottom-color: var(--gold-mid);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── LAYOUT ── */
+.main { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.section { display: none; }
+.section.visible { display: block; }
+
+/* ── SEARCH BAR ── */
+.search-wrap {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--paper2);
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+}
+.search-wrap input,
+.search-wrap select {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  padding: 9px 14px;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s;
+}
+.search-wrap input { flex: 1; min-width: 200px; }
+.search-wrap input::placeholder { color: var(--ink3); }
+.search-wrap input:focus,
+.search-wrap select:focus { border-color: var(--gold); }
+.q-count {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.q-count strong { color: var(--ink2); }
+
+/* ── QUESTION CARDS ── */
+.q-card {
+  background: #fff;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  margin-bottom: 8px;
+  transition: box-shadow .15s, border-color .15s;
+  overflow: hidden;
+}
+.q-card:hover { box-shadow: var(--shadow); border-color: #c8b89a; }
+.q-card.expanded { border-color: var(--gold); box-shadow: var(--shadow-lg); }
+
+.q-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.q-num {
+  background: var(--ink);
+  color: var(--gold-mid);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .5px;
+}
+.q-meta { flex: 1; min-width: 0; }
+.q-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.q-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.q-tag {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.q-expand-icon {
+  font-size: 16px;
+  color: var(--ink3);
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: transform .2s;
+}
+.q-card.expanded .q-expand-icon { transform: rotate(180deg); }
+
+.q-body {
+  display: none;
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--paper3);
+  margin-top: 0;
+}
+.q-card.expanded .q-body { display: block; }
+
+.q-body-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink3);
+  margin: 14px 0 10px;
+}
+.q-point {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink2);
+}
+.q-point::before {
+  content: '›';
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+.q-contexts {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--gold-light);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--gold);
+}
+.q-contexts-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.ctx-chip {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #d4b96a;
+  border-radius: 3px;
+  padding: 3px 9px;
+  font-size: 11.5px;
+  color: var(--ink2);
+  margin: 3px 4px 0 0;
+}
+
+/* ── EPOCH COLORS ── */
+.ep-antyk { background: #e8f0e8; color: #2a5c35; }
+.ep-sr { background: #f0e8e0; color: #6b3c1a; }
+.ep-renbar { background: #ede8f5; color: #4a2a7a; }
+.ep-oswiecenie { background: #e8f5e8; color: #2a5c2a; }
+.ep-romantyzm { background: #f5e8ee; color: #7a2a4a; }
+.ep-pozytywizm { background: #e8f0f5; color: #1a4a6c; }
+.ep-mlodapolska { background: #f5ede8; color: #7a3a1a; }
+.ep-dwudziestolecie { background: #f0f5e8; color: #3a5c1a; }
+.ep-wojenna { background: #f5e8e8; color: #7a1a1a; }
+.ep-realizm { background: #e8edf5; color: #1a2a5c; }
+.ep-wspolczesnosc { background: #e8f5f0; color: #1a5c3a; }
+.ep-klasycyzm { background: #f5f0e8; color: #5c4a1a; }
+
+/* ── FISZKI ── */
+.fc-wrap { max-width: 560px; margin: 0 auto; }
+.fc-filter-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.fc-filter-btn {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--paper3);
+  background: #fff;
+  cursor: pointer;
+  color: var(--ink3);
+  transition: all .15s;
+}
+.fc-filter-btn.active {
+  background: var(--ink);
+  color: var(--gold-mid);
+  border-color: var(--ink);
+}
+.fc-stats-row {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: var(--paper2);
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.fc-stat {
+  flex: 1;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 13px;
+  color: var(--ink3);
+  border-right: 1px solid var(--paper3);
+}
+.fc-stat:last-child { border-right: none; }
+.fc-stat strong {
+  display: block;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+.fc-stat.s-know strong { color: var(--green); }
+.fc-stat.s-dontknow strong { color: var(--red); }
+.fc-stat.s-left strong { color: var(--ink2); }
+
+/* card */
+.card-scene {
+  perspective: 1200px;
+  margin-bottom: 10px;
+}
+.card-3d {
+  width: 100%;
+  height: 210px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.card-3d.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+.card-front {
+  background: var(--ink);
+  border: 1px solid var(--ink2);
+}
+.card-front .cf-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.card-front .cf-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.card-back {
+  background: #fff;
+  border: 2px solid var(--gold);
+  transform: rotateY(180deg);
+}
+.card-back .cb-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.card-back .cb-text {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+.fc-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink3);
+  margin: 8px 0;
+}
+.fc-lektura {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink3);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.fc-prog {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 14px;
+}
+.fc-score-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.btn-know, .btn-dontknow {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 24px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.btn-know { background: var(--green-light); color: var(--green); border: 1px solid #b0d0b8; }
+.btn-dontknow { background: var(--red-light); color: var(--red); border: 1px solid #e0b0b0; }
+.btn-know:hover { opacity: .8; }
+.btn-dontknow:hover { opacity: .8; }
+.fc-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.fc-controls button {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  padding: 7px 16px;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius);
+  background: #fff;
+  cursor: pointer;
+  color: var(--ink2);
+  transition: background .15s;
+}
+.fc-controls button:hover { background: var(--paper2); }
+
+/* ── LEKTURY ── */
+.lektury-intro {
+  background: var(--paper2);
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+.lektury-intro strong { color: var(--ink); }
+
+.lektura-card {
+  background: #fff;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  transition: box-shadow .15s;
+}
+.lektura-card:hover { box-shadow: var(--shadow); }
+.lk-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.lk-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.lk-author {
+  font-size: 13px;
+  color: var(--ink3);
+  margin-top: 2px;
+}
+.lk-epoka {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+.lk-priority {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.lk-priority.high { background: var(--red-light); color: var(--red); }
+.lk-priority.med { background: #fef0e0; color: #854f0b; }
+.lk-priority.low { background: var(--green-light); color: var(--green); }
+.lk-info {
+  font-size: 13px;
+  color: var(--ink3);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.lk-info strong { color: var(--ink2); }
+.lk-bar {
+  height: 4px;
+  background: var(--paper3);
+  border-radius: 2px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.lk-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-mid));
+  transition: width .3s;
+}
+.lk-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.lk-theme {
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--paper2);
+  border: 1px solid var(--paper3);
+  color: var(--ink3);
+}
+
+/* ── PLAN ── */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.method-card {
+  background: #fff;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  transition: box-shadow .15s;
+}
+.method-card:hover { box-shadow: var(--shadow); }
+.method-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.method-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.method-desc {
+  font-size: 13px;
+  color: var(--ink3);
+  line-height: 1.6;
+}
+.plan-block {
+  background: #fff;
+  border: 1px solid var(--paper3);
+  border-radius: var(--radius-lg);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.plan-block-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--paper2);
+  border-bottom: 1px solid var(--paper3);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.plan-block-badge {
+  font-size: 11px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.plan-day {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--paper3);
+}
+.plan-day:last-child { border-bottom: none; }
+.plan-day-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  min-width: 32px;
+  margin-top: 2px;
+}
+.plan-day-content { flex: 1; }
+.plan-day-task {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+.plan-day-time {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-top: 2px;
+}
+.tip-block {
+  background: var(--gold-light);
+  border: 1px solid #d4b96a;
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+}
+.tip-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tip-title::before { content: '★'; color: var(--gold); }
+.tip-text {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--paper2); }
+::-webkit-scrollbar-thumb { background: var(--paper3); border-radius: 3px; }
+
+/* sr-only */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-eyebrow">Centralna Komisja Egzaminacyjna · Lista jawnych zadań</div>
+    <h1 class="header-title">Matura ustna — język polski<br>2026 · 2027 · 2028</h1>
+    <p class="header-sub">Interaktywna baza pytań z odpowiedziami, fiszki, lektury i plan nauki</p>
+    <div class="header-pills">
+      <span class="header-pill">76 pytań</span>
+      <span class="header-pill">23 lektury</span>
+      <span class="header-pill">Pytania + konteksty</span>
+      <span class="header-pill">Fiszki z oceną</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar" role="navigation">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="switchTab('pytania',this)">📋 Pytania i odpowiedzi</button>
+    <button class="nav-tab" onclick="switchTab('fiszki',this)">🃏 Fiszki</button>
+    <button class="nav-tab" onclick="switchTab('lektury',this)">📚 Lektury</button>
+    <button class="nav-tab" onclick="switchTab('plan',this)">🗓 Plan nauki</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- PYTANIA -->
+  <div id="sec-pytania" class="section visible">
+    <div class="search-wrap">
+      <input type="text" id="search-input" placeholder="🔍  Szukaj pytania, lektury, słowa kluczowego…" oninput="filterQ()">
+      <select id="filter-epoka" onchange="filterQ()">
+        <option value="">Wszystkie epoki</option>
+      </select>
+      <select id="filter-lektura" onchange="filterQ()">
+        <option value="">Wszystkie lektury</option>
+      </select>
+    </div>
+    <div class="q-count" id="q-count"></div>
+    <div id="q-list"></div>
+  </div>
+
+  <!-- FISZKI -->
+  <div id="sec-fiszki" class="section">
+    <div class="fc-wrap">
+      <div class="fc-filter-row" id="fc-filter"></div>
+      <div class="fc-stats-row">
+        <div class="fc-stat s-know"><strong id="stat-know">0</strong>Znam ✓</div>
+        <div class="fc-stat s-dontknow"><strong id="stat-dontknow">0</strong>Nie znam ✗</div>
+        <div class="fc-stat s-left"><strong id="stat-left">0</strong>Pozostało</div>
+      </div>
+      <div class="card-scene">
+        <div class="card-3d" id="flashcard" onclick="flipCard()">
+          <div class="card-face card-front">
+            <div class="cf-label">Pytanie</div>
+            <div class="cf-text" id="fc-q">Ładuję…</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="cb-label">Wskazówki do odpowiedzi</div>
+            <div class="cb-text" id="fc-a"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-hint" id="fc-hint">Kliknij kartę, aby zobaczyć wskazówki</div>
+      <div class="fc-lektura" id="fc-lektura"></div>
+      <div class="fc-prog" id="fc-prog"></div>
+      <div class="fc-score-btns" id="fc-score" style="display:none">
+        <button class="btn-dontknow" onclick="rateCard(false)">✗ Nie znam</button>
+        <button class="btn-know" onclick="rateCard(true)">✓ Znam</button>
+      </div>
+      <div class="fc-controls">
+        <button onclick="fcPrev()">← Poprzednia</button>
+        <button onclick="resetDeck()">↺ Resetuj</button>
+        <button onclick="shuffleDeck()">⇄ Losuj</button>
+        <button onclick="fcNext()">Następna →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEKTURY -->
+  <div id="sec-lektury" class="section">
+    <div class="lektury-intro">
+      Poniżej lista <strong>najważniejszych lektur</strong> posortowana według liczby pytań egzaminacyjnych.
+      Skup się na lekturach oznaczonych jako <strong>Kluczowa</strong> — zawierają najwięcej pytań i najszersze konteksty.
+    </div>
+    <div id="lektury-list"></div>
+  </div>
+
+  <!-- PLAN -->
+  <div id="sec-plan" class="section">
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-icon">🃏</div>
+        <div class="method-name">Fiszki aktywne</div>
+        <div class="method-desc">Codziennie 20 minut. Metoda powtórzeń przestrzonych — pytania których nie znasz wracają częściej. Skuteczniejsza niż samo czytanie.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🎙</div>
+        <div class="method-name">Mówienie na głos</div>
+        <div class="method-desc">Nagraj się na telefon. 15 minut odpowiedzi na losowe pytanie. Słuchaj i poprawiaj. Egzamin jest ustny — ćwicz mowę, nie pismo.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🗺</div>
+        <div class="method-name">Mapy myśli</div>
+        <div class="method-desc">Do każdej lektury narysuj mapę: tytuł w centrum, gałęzie to motywy, postacie, cytaty. Pomaga zapamiętać strukturę lektury.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">⏱</div>
+        <div class="method-name">Symulacja egzaminu</div>
+        <div class="method-desc">15 min przygotowania + 15 min prezentacji. Używaj stopera. Struktura: teza → argument 1 → argument 2 → kontekst → podsumowanie.</div>
+      </div>
+    </div>
+
+    <div class="plan-block">
+      <div class="plan-block-head">
+        <span class="plan-block-badge ep-antyk" style="border-radius:999px">Tydzień 1–2</span>
+        Starożytność i Średniowiecze
+      </div>
+      <div class="plan-day"><div class="plan-day-name">Pon</div><div class="plan-day-content"><div class="plan-day-task">Biblia — Hiob (cierpienie), Kohelet (niestałość), Apokalipsa (koniec świata)</div><div class="plan-day-time">45 min nauki + 15 min fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Wt</div><div class="plan-day-content"><div class="plan-day-task">Mitologia Parandowskiego — pytania 4, 5, 6</div><div class="plan-day-time">45 min nauki + 15 min fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Śr</div><div class="plan-day-content"><div class="plan-day-task">Iliada, Antygona — heroizm, przeznaczenie, prawo boskie</div><div class="plan-day-time">45 min nauki + 15 min fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Czw</div><div class="plan-day-content"><div class="plan-day-task">Lament świętokrzyski, Rozmowa Polikarpa, Pieśń o Rolandzie</div><div class="plan-day-time">45 min nauki + 15 min fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Pt</div><div class="plan-day-content"><div class="plan-day-task">Makbet (3 pytania), Skąpiec (2 pytania), satyra Krasickiego</div><div class="plan-day-time">45 min nauki + 15 min fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Sob</div><div class="plan-day-content"><div class="plan-day-task"><strong>Symulacja:</strong> losowe pytanie z tygodnia, 15 min przygotowania, nagranie odpowiedzi</div><div class="plan-day-time">1 godzina</div></div></div>
+    </div>
+
+    <div class="plan-block">
+      <div class="plan-block-head">
+        <span class="plan-block-badge ep-romantyzm" style="border-radius:999px">Tydzień 3–4</span>
+        Romantyzm i Pozytywizm
+      </div>
+      <div class="plan-day"><div class="plan-day-name">Pon</div><div class="plan-day-content"><div class="plan-day-task">Mickiewicz — Romantyczność, ballady (pytania 19–20)</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Wt</div><div class="plan-day-content"><div class="plan-day-task">Dziady cz. III — pytania 21–25 (losy, mesjanizm, postawy)</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Śr</div><div class="plan-day-content"><div class="plan-day-task">Dziady cz. III — pytania 26–29 (Biblia, wolność, samotność)</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Czw</div><div class="plan-day-content"><div class="plan-day-task">Lalka Prusa — pytania 30–35 (miłość, praca, majątek, miasto)</div><div class="plan-day-time">60 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Pt</div><div class="plan-day-content"><div class="plan-day-task">Potop, Zbrodnia i kara — pytania 36–41</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Sob</div><div class="plan-day-content"><div class="plan-day-task"><strong>Symulacja:</strong> losowe pytanie z romantyzmu lub pozytywizmu + nagranie</div><div class="plan-day-time">1 godzina</div></div></div>
+    </div>
+
+    <div class="plan-block">
+      <div class="plan-block-head">
+        <span class="plan-block-badge ep-mlodapolska" style="border-radius:999px">Tydzień 5–6</span>
+        Młoda Polska i XX wiek
+      </div>
+      <div class="plan-day"><div class="plan-day-name">Pon</div><div class="plan-day-content"><div class="plan-day-task">Wesele — pytania 42–46 (5 pytań!)</div><div class="plan-day-time">60 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Wt</div><div class="plan-day-content"><div class="plan-day-task">Chłopi, Przedwiośnie — pytania 47–53</div><div class="plan-day-time">60 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Śr</div><div class="plan-day-content"><div class="plan-day-task">Ferdydurke, Borowski, Herling-Grudziński — pytania 54–58</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Czw</div><div class="plan-day-content"><div class="plan-day-task">Hanna Krall, Dżuma Camusa — pytania 59–65</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Pt</div><div class="plan-day-content"><div class="plan-day-task">Rok 1984, Tango, lektury współczesne — pytania 66–76</div><div class="plan-day-time">45 min + fiszki</div></div></div>
+      <div class="plan-day"><div class="plan-day-name">Sob</div><div class="plan-day-content"><div class="plan-day-task"><strong>Pełna symulacja:</strong> losowe pytanie + pytanie o kontekst. Nagranie + ocena</div><div class="plan-day-time">1,5 godziny</div></div></div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-title">Struktura idealnej odpowiedzi ustnej</div>
+      <div class="tip-text">
+        <strong>1. Wstęp (1 min):</strong> Nazwij zagadnienie, podaj tezę — co chcesz udowodnić.<br>
+        <strong>2. Argument 1 (2 min):</strong> Przykład z lektury obowiązkowej + cytat lub konkretna scena.<br>
+        <strong>3. Argument 2 (2 min):</strong> Pogłębienie lub drugi aspekt z tej samej lektury.<br>
+        <strong>4. Kontekst (2 min):</strong> Inne dzieło (film, obraz, inna lektura, historia) — to obowiązkowe!<br>
+        <strong>5. Podsumowanie (1 min):</strong> Wróć do tezy — potwierdź lub otwórz pytanie na szerszy wymiar.
+      </div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-title">Najczęstsze konteksty — przygotuj je do wszystkiego</div>
+      <div class="tip-text">
+        <strong>Filozofia:</strong> stoicyzm (Marek Aureliusz), egzystencjalizm (Sartre, Camus — absurd, wolność)<br>
+        <strong>Historia:</strong> II wojna światowa, Holokaust, PRL, rozbiory, powstania<br>
+        <strong>Malarstwo:</strong> Goya (Saturn pożera syna), Delacroix (Wolność na barykadach), Pieta Michała Anioła<br>
+        <strong>Film:</strong> Lista Schindlera, Pianista, Przesłuchanie, Człowiek z marmuru<br>
+        <strong>Biblia — prawie do każdego pytania!</strong> Kain i Abel (wina/kara), Hiob (cierpienie), Jonasz (ucieczka od misji), syn marnotrawny (przemiana)
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// DATA
+const DATA=[
+ {id:1,lektura:"Biblia",pytanie:"Motyw cierpienia niezawinionego. Omów zagadnienie na podstawie Księgi Hioba.",krotkie:"Cierpienie niezawinione",epoka:"Antyk/Biblia",odpowiedz:["Hiob to postać cnotliwa, która traci wszystko (majątek, dzieci, zdrowie) bez własnej winy -- to test od Boga","Cierpienie nie zawsze jest karą za grzech -- to centralna myśl tej księgi, przełomowa w kulturze judaistycznej","Hiob buntuje się, rozpacza, ale ostatecznie zachowuje wiarę -- Bóg przywraca mu wszystko","Pytanie o teodycee: dlaczego dobry Bóg dopuszcza cierpienie niewinnych?"],konteksty:["Dżuma Camusa (cierpienie bez sensu)","Proszę państwa do gazu (niewinne ofiary)","obraz Hioba w kulturze europejskiej"]},
+ {id:2,lektura:"Biblia",pytanie:"Człowiek wobec niestałości świata. Omów zagadnienie na podstawie Księgi Koheleta.",krotkie:"Niestałość -- Kohelet",epoka:"Antyk/Biblia",odpowiedz:["Vanitas vanitatum -- wszystko jest marnością; bogactwo, mądrość, sława przemijają","Kohelet zachęca do cieszenia się chwilą -- pierwowzór epikureizmu biblijnego","Cykliczność: słońce wschodzi i zachodzi, rzeki wracają do morza -- świat kręci się w kółko","Motyw memento mori -- pamiętaj, że umrzesz, więc żyj mądrze"],konteksty:["Lalka (marzenia Wokulskiego)","Wesele (niestałość dążeń narodowych)","filozofia: stoicyzm"]},
+ {id:3,lektura:"Biblia",pytanie:"Wizja końca świata. Omów zagadnienie na podstawie Apokalipsy św. Jana.",krotkie:"Wizja końca świata",epoka:"Antyk/Biblia",odpowiedz:["Apokalipsa = objawienie (gr.) -- tekst pełen symboliki: 4 jeźdźcy, Bestia 666, Nowa Jerozolima","Koniec świata jako nagroda dla sprawiedliwych -- nie tylko katastrofa, ale nadzieja","Bogata symbolika liczb: 7 (pieczęci, trąb, czasz), 144 000 sprawiedliwych","Każda epoka odbierała Apokalipsę przez pryzmat własnych lęków (czarna śmierć, II WW)"],konteksty:["malarstwo: Dürer Czterej Jeźdźcy","Rok 1984 (dystopia jako świat po końcu)","Dziady cz. III (wizje profetyczne)"]},
+ {id:4,lektura:"Mitologia Parandowskiego",pytanie:"Poświęcenie się w imię wyższych wartości. Omów zagadnienie na podstawie Mitologii Jana Parandowskiego.",krotkie:"Poświęcenie -- Mitologia",epoka:"Antyk/Biblia",odpowiedz:["Prometeusz -- kradnie ogień bogom, aby podarować go ludziom; cena to wieczna kara (orzeł jedzący wątrobę)","Orfeusz -- schodzi do Hadesu po Eurydykę; poświęca wszystko dla miłości","Eros i Psyche -- miłość jako droga przez próby i poświęcenie","Prometeizm: postawa walki dla dobra ogółu kosztem siebie -- ważna idea romantyczna"],konteksty:["Dziady cz. III (Konrad jako Prometeusz)","Zbrodnia i kara (Sonia -- poświęcenie dla innych)"]},
+ {id:5,lektura:"Mitologia Parandowskiego",pytanie:"Problematyka winy i kary. Omów zagadnienie na podstawie Mitologii Jana Parandowskiego.",krotkie:"Wina i kara -- Mitologia",epoka:"Antyk/Biblia",odpowiedz:["Syzyf -- za przechytrzenie śmierci toczy kamień na górę w nieskończoność","Tantalos -- za zamordowanie syna bogom dostał tantalowe męki (woda i owoce uciekają)","Edyp -- nieświadomość winy nie zwalnia z kary; los jest nieuchronny","Hybris (pycha wobec bogów) zawsze kończy się upadkiem -- Ikar, Niobe"],konteksty:["Antygona (prawo boskie vs ludzkie)","Makbet (odpowiedzialność moralna)"]},
+ {id:6,lektura:"Mitologia Parandowskiego",pytanie:"Miłość silniejsza niż śmierć. Omów zagadnienie na podstawie Mitologii Jana Parandowskiego.",krotkie:"Miłość silniejsza niż śmierć",epoka:"Antyk/Biblia",odpowiedz:["Orfeusz i Eurydyka -- miłość prowadzi przez Hades; jedno spojrzenie niszczy wszystko","Psyche i Eros -- miłość przetrwa próby i zazdrość Afrodyty","Alcestis -- żona oddaje życie za męża, Herakles ją ratuje","Motyw miłości niemożliwej, tragicznej -- wpisany w kulturę europejską"],konteksty:["Romeo i Julia","Lalka (miłość Wokulskiego)","poezja Kochanowskiego"]},
+ {id:7,lektura:"Homer, Iliada",pytanie:"Heroizm jako postawa człowieka w zmaganiu się z losem. Omów zagadnienie na podstawie fragmentów Iliady Homera.",krotkie:"Heroizm -- Iliada",epoka:"Antyk/Biblia",odpowiedz:["Achilles -- wybiera krótkie, chwalebne życie zamiast długiego i bezbarwnego; archetyp herosa","Hektor -- broni Troi wiedząc, że zginie; heroizm jako obowiązek wobec ojczyzny i rodziny","Grecki heros nie ucieka przed losem -- stawia mu czoła z honorem","Arete (doskonałość, dzielność) -- najwyższa wartość w świecie Homera"],konteksty:["Antygona (heroizm wobec prawa)","Pieśń o Rolandzie (średniowieczny rycerz)","Potop (Kmicic jako bohater)"]},
+ {id:8,lektura:"Sofokles, Antygona",pytanie:"Prawa boskie a prawa ludzkie. Omów zagadnienie na podstawie Antygony Sofoklesa.",krotkie:"Prawa boskie vs ludzkie",epoka:"Antyk/Biblia",odpowiedz:["Antygona pochowała brata Polinejkesa wbrew zakazowi Kreona -- prawo boskie (religia, moralność) ponad ludzkim (państwo, władza)","Kreon reprezentuje rację stanu -- porządek polis; jego błąd to pycha (hybris)","Tragizm: obydwoje mają rację w swoich systemach wartości -- klasyczny konflikt tragedii greckiej","Anouilh przerobił Antygonę w 1944 (pod okupacją) -- temat wiecznie aktualny"],konteksty:["Dziady cz. III (walka z władzą zaborcy)","Rok 1984 (prawo państwa totalitarnego)","sumienie vs. rozkaz w czasach wojny"]},
+ {id:9,lektura:"Sofokles, Antygona",pytanie:"Człowiek wobec przeznaczenia. Omów zagadnienie na podstawie Antygony Sofoklesa.",krotkie:"Człowiek wobec przeznaczenia",epoka:"Antyk/Biblia",odpowiedz:["Fatum (los) u Greków jest nieodwołalne -- Edyp, Antygona, Kreon nie mogą uciec od swojego losu","Antygona idzie na śmierć z pełną świadomością -- staje się kimś większym niż los","Wyrocznia, Mojry (boginie losu) -- człowiek jest marionetką czy ma wolną wolę?","Tragedia grecka: hamartia (błąd tragiczny) + katharsis (oczyszczenie widza)"],konteksty:["Makbet (czy człowiek decyduje o losie?)","Dziady cz. III (przeznaczenie narodu)","Lalka (konfrontacja marzeń z rzeczywistością)"]},
+ {id:10,lektura:"Lament świętokrzyski",pytanie:"Motyw cierpiącej matki. Omów zagadnienie na podstawie fragmentów Lamentu świętokrzyskiego.",krotkie:"Cierpiąca matka",epoka:"Średniowiecze",odpowiedz:["Maryja przemawia do Chrystusa ukrzyżowanego -- planctus (lament) jako gatunek liryczny","Mater dolorosa -- Matka Bolesna: ikonograficzny motyw w sztuce średniowiecza i baroku","Universalność bólu matki tracącej dziecko -- przekracza kontekst religijny","Realizm emocjonalny mimo religijnego kontekstu: prawdziwy, ludzki ból, nie tylko teologia"],konteksty:["malarstwo: Pieta Michała Anioła","Biblia (stacja krzyżowa)","Dziady III (matka Rollisona)"]},
+ {id:11,lektura:"Rozmowa Mistrza Polikarpa ze Śmiercią",pytanie:"Motyw tańca śmierci. Omów zagadnienie na podstawie fragmentów Rozmowy Mistrza Polikarpa ze Śmiercią.",krotkie:"Taniec śmierci",epoka:"Średniowiecze",odpowiedz:["Danse macabre -- śmierć tańczy z reprezentantami wszystkich stanów: papieżem, królem, chłopem. Wszyscy równi wobec śmierci","Alegoria: Śmierć jako rozkładające się ciało -- realizm memento mori","Krytyka społeczna: bogaci nie są lepsi od biednych wobec śmierci","Związek z plagą (czarną śmiercią XIV w.) -- poczucie powszechnej zagłady"],konteksty:["Drzeworyty Holbeina","Wesele (korowód zjaw)","Apokalipsa (jeźdźcy)"]},
+ {id:12,lektura:"Pieśń o Rolandzie",pytanie:"Średniowieczny wzorzec rycerza. Omów zagadnienie na podstawie fragmentów Pieśni o Rolandzie.",krotkie:"Wzorzec rycerza",epoka:"Średniowiecze",odpowiedz:["Roland: odwaga, lojalność wobec króla i Boga, honor ważniejszy niż życie (nie trąbi po pomoc)","Ethos rycerski: służba Bogu, wierność seniorowi, ochrona słabych, walka z niewiernymi","Roland odmawia wezwania pomocy -- pycha czy honor? Ginie, ale jego imię żyje","Kontekst krucjat -- ideologia chrześcijańskiego rycerza walczącego z islamem"],konteksty:["Potop (Kmicic jako rycerz sarmacki)","Iliada (Achilles i Hektor)","Don Kichot (parodia etosu rycerskiego)"]},
+ {id:13,lektura:"Szekspir, Makbet",pytanie:"Moralna odpowiedzialność za czyny. Omów zagadnienie na podstawie Makbeta Williama Szekspira.",krotkie:"Odpowiedzialność moralna",epoka:"Renesans/Barok",odpowiedz:["Makbet zabija króla Duncana -- przez ambicję i manipulację Lady Makbet. Każde kolejne morderstwo jest łatwiejsze","Sumienie jako kara: Makbet widuje ducha Banka, Lady Makbet lunatykuje i myje ręce z krwi","Odpowiedzialność nie jest podzielona -- nie można jej zrzucić na czarownice czy żonę","Tragic hero: szlachetny wojownik zniszczony przez własne słabości"],konteksty:["Zbrodnia i kara (Raskolnikow i sumienie)","Dziady cz. III (zło i jego konsekwencje)","Hamlet (inaczej: zwlekanie z zemstą)"]},
+ {id:14,lektura:"Szekspir, Makbet",pytanie:"Czy człowiek decyduje o własnym losie? Omów zagadnienie na podstawie Makbeta Williama Szekspira.",krotkie:"Wolna wola w Makbecie",epoka:"Renesans/Barok",odpowiedz:["Przepowiednia czarownic: Makbet będzie królem -- ale jak to osiągnie, zależy od niego","Proroctwa są prawdziwe, ale interpretacja jest wolnym wyborem -- Makbet wybiera mord","Lady Makbet popycha go do działania, ale ostateczna decyzja należy do niego","Paradoks: im bardziej Makbet wypełnia przepowiednię, tym bardziej traci kontrolę nad życiem"],konteksty:["Antygona (fatum)","Mitologia (los Edypa)","Ferdydurke (presja otoczenia)"]},
+ {id:15,lektura:"Szekspir, Makbet",pytanie:"Jaki wpływ na człowieka ma sprawowanie przez niego władzy? Omów zagadnienie na podstawie Makbeta Williama Szekspira.",krotkie:"Władza a człowieczeństwo",epoka:"Renesans/Barok",odpowiedz:["Makbet zmienia się: szlachetny wojownik -> tyran mordujący przyjaciół i niewinne kobiety z dziećmi","Władza korumpuje: im więcej ma, tym bardziej boi się ją stracić -- spirala przemocy","Lady Makbet: pragnie władzy, ale nie wytrzymuje psychicznie ciężaru zbrodni","Kontrast: dobry król Duncan vs tyran Makbet -- co znaczy prawdziwa władza?"],konteksty:["Rok 1984 (totalitaryzm)","Wesele (niemoc polskich elit)","historia: Stalin, Hitler"]},
+ {id:16,lektura:"Molier, Skąpiec",pytanie:"Czy dobra materialne czynią człowieka szczęśliwym? Omów zagadnienie na podstawie Skąpca Moliera.",krotkie:"Dobra materialne a szczęście",epoka:"Klasycyzm",odpowiedz:["Harpagon kocha pieniądze bardziej niż dzieci -- pyta skrzynkę czy go nie zdradza, podejrzewa wszystkich","Skąpstwo niszczy relacje: dzieci uciekają, służba kpi, romans niemożliwy","Molier pokazuje skąpstwo jako chorobę/obsesję, nie racjonalny wybór","Na końcu Harpagon jest szczęśliwy odzyskując kasę -- ale to satyra: to nie jest prawdziwe szczęście"],konteksty:["Lalka (rola majątku w relacjach)","Zbrodnia i kara (bieda vs. chciwość)","współczesny konsumpcjonizm"]},
+ {id:17,lektura:"Molier, Skąpiec",pytanie:"Przyczyny nieporozumień między rodzicami a dziećmi. Omów zagadnienie na podstawie Skąpca Moliera.",krotkie:"Konflikt pokoleń -- Skąpiec",epoka:"Klasycyzm",odpowiedz:["Harpagon chce żenić syna i córkę z osobami dla siebie korzystnymi finansowo -- ignoruje uczucia dzieci","Dzieci kochają, komu chcą -- sprzeczne priorytety (miłość vs. majątek)","Różnica: dzieci chcą wolności, ojciec chce kontroli i zysku","Motyw komedii: nieporozumienie jako źródło humoru, ale i krytyki patriarchalnego systemu"],konteksty:["Tango Mrożka (bunt syna)","Lalka (Łęccy i Izabela)","współczesny konflikt pokoleń"]},
+ {id:18,lektura:"Krasicki, satyra",pytanie:"Wady ludzkie w krzywym zwierciadle satyry. Omów zagadnienie na podstawie satyry Ignacego Krasickiego.",krotkie:"Satyra -- wady ludzkie",epoka:"Oświecenie",odpowiedz:["Satyra -- gatunek krytykujący wady poprzez śmiech, wyolbrzymienie, ironię","Krasicki w Żonie modnej: krytyka szlachty ślepo naśladującej modę francuską","Pijaństwo, rozrzutność, obłuda, głupota -- typowe wady szlachty XVIII w.","Cel satyry: śmiechem naprawiać obyczaje (castigat ridendo mores)"],konteksty:["Skąpiec (satyra na skąpstwo)","Wesele (krytyka inteligencji)","Ferdydurke (groteska)"]},
+ {id:19,lektura:"Mickiewicz, Romantyczność",pytanie:"Świat ducha a świat rozumu. Omów zagadnienie na podstawie Romantyczności Adama Mickiewicza.",krotkie:"Duch vs rozum",epoka:"Romantyzm",odpowiedz:["Karusia widzi ducha Jana -- dla tłumu to prawda, dla Starca (rozum, Oświecenie) to szaleństwo","Mickiewicz staje po stronie uczucia i wiary: czucie i wiara mówią mi więcej niż mędrcowe szkiełko i oko","Manifest romantyzmu: odrzucenie racjonalizmu oświeceniowego na rzecz intuicji, uczuć, ludowości","Starzec = oświeceni filozofowie vs. prosty lud = serce jako droga do prawdy"],konteksty:["Dziady cz. II (duchy, obrzęd)","Mitologia (świat bogów i ludzi)","filozofia: Kant"]},
+ {id:20,lektura:"Mickiewicz, ballady",pytanie:"Na czym polega ludowa sprawiedliwość? Omów zagadnienie na podstawie ballad Adama Mickiewicza.",krotkie:"Ludowa sprawiedliwość",epoka:"Romantyzm",odpowiedz:["Lilie: żona morduje męża, duchy ujawniają zbrodnię, kara przychodzi nadnaturalnie","Świtezianka: zdrada -> zamiana w topielicę, kara natychmiastowa i bezlitosna","Sprawiedliwość ludowa: moralna, nieuchronna, realizowana przez siły nadprzyrodzone","Lud jako strażnik porządku moralnego -- wyższy od prawa stanowionego"],konteksty:["Biblia -- kara Boża","Antygona -- prawo boskie vs ludzkie","Zbrodnia i kara -- nieuchronność kary"]},
+ {id:21,lektura:"Mickiewicz, Dziady III",pytanie:"Losy młodzieży polskiej pod zaborami. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Młodzież pod zaborami",epoka:"Romantyzm",odpowiedz:["Prolog: Gustaw przemienia się w Konrada -- poeta-patriota w celi więziennej","Scena więzienna: młodzi Polacy aresztowani za patriotyczną działalność (Towarzystwo Filomatów)","Senator Nowosilcow -- symbol rosyjskiego terroru: zsyłki na Syberię, więzienia","Jankowski, Rollison -- konkretne losy: matka szalejąca z rozpaczy po zsyłce syna"],konteksty:["Potop (walka za ojczyznę)","Przedwiośnie (odbudowa po zaborach)","historia: powstanie listopadowe 1830"]},
+ {id:22,lektura:"Mickiewicz, Dziady III",pytanie:"Mesjanizm jako romantyczna idea poświęcenia. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Mesjanizm",epoka:"Romantyzm",odpowiedz:["Polska jako Chrystus narodów -- cierpi za grzechy innych, zmartwychwstanie przez wolność","Widzenie Księdza Piotra: Polska = niewinne dziecię, Napoleon = Piłat, car = Herod","Mesjanizm: naród wybrany do szczególnej misji zbawienia Europy przez cierpienie","Konrad w Wielkiej Improwizacji: żąda od Boga władzy nad duszami -- bluźnierstwo czy heroizm?"],konteksty:["Biblia -- Chrystus","Przedwiośnie (inna wizja Polski)","historia filozofii romantyzmu: Towiański"]},
+ {id:23,lektura:"Mickiewicz, Dziady III",pytanie:"Postawy społeczeństwa polskiego wobec zaborcy. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Postawy wobec zaborcy",epoka:"Romantyzm",odpowiedz:["Towarzystwo przy stoliku: polscy lojaliści flirtujący z rosyjską władzą -- Mickiewicz ich potępia","Scena Balu u Senatora: zdrajcy bawią się, gdy patrioci cierpią w więzieniu","Kontrast: młodzi konspiratorzy vs starsze pokolenie kolaborantów","Postawy: oportunizm, kolaboracja, bierny opór, czynny opór (mesjanistyczny)"],konteksty:["Wesele (bierność inteligencji)","Rok 1984 (kolaboracja w systemie totalitarnym)","Inny świat (zniewolenie)"]},
+ {id:24,lektura:"Mickiewicz, Dziady III",pytanie:"Różne postawy człowieka wobec Boga. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Człowiek wobec Boga",epoka:"Romantyzm",odpowiedz:["Konrad w Wielkiej Improwizacji: bunt -- żąda od Boga władzy, oskarża Go o obojętność","Ksiądz Piotr: pokora i zaufanie Bogu, modlitwa -- postawa mistyczna","Rollison: milczenie Boga w obliczu cierpienia -- wątpliwości","Trzy postawy: bunt (Konrad), wiara (Piotr), desperacja (Rollison/jego matka)"],konteksty:["Biblia -- Hiob (bunt i pokora)","Dżuma (Paneloux -- ksiądz wobec cierpienia)","Zbrodnia i kara (Sonia -- głęboka wiara)"]},
+ {id:25,lektura:"Mickiewicz, Dziady III",pytanie:"Jakie prawdy o człowieku ujawniają jego sny albo widzenia? Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Sny i widzenia",epoka:"Romantyzm",odpowiedz:["Widzenie Senatora: demony opanowują jego duszę -- sny obnażają moralną podłość","Widzenie Ewy: anielska niewinność, kontrast z Senatorem","Sny jako forma wyroku moralnego i profetycznego -- romantyzm uwielbia sfery irracjonalne","Sen = prawdziwe ja bez maski -- psychologiczne odkrycie literatury przed Freudem"],konteksty:["Makbet (Lady Makbet -- lunatykowanie, poczucie winy)","Biblia (sny proroków: Józef, Daniel)"]},
+ {id:26,lektura:"Mickiewicz, Dziady III",pytanie:"W jakim celu twórca nawiązuje do motywów biblijnych? Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Nawiązania biblijne",epoka:"Romantyzm",odpowiedz:["Polska = Chrystus: nadaje cierpieniu Polski sens i chwałę -- uświęca walkę o wolność","Konrad = Lucyfer? Jego bunt wobec Boga przypomina upadek aniołów","Sacrum jako język opisu polityki: za Bożym przykładem Polacy muszą wytrwać i zmartwychwstać","Intertekstualność: tekst biblijny autoryzuje romantyczną ideologię mesjanistyczną"],konteksty:["Lament świętokrzyski (Maryja)","Dziady II (motyw Dziadów = obrzęd)","Górą Edek (intertekstualność -- cel nawiązań)"]},
+ {id:27,lektura:"Mickiewicz, Dziady III",pytanie:"Walka dobra ze złem o duszę ludzką. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Dobro vs zło",epoka:"Romantyzm",odpowiedz:["Konrad kuszony przez szatana -- Wielka Improwizacja kończy się egzorcyzmem","Ksiądz Piotr ratuje Konrada przez modlitwę -- dobro triumfuje","Senator jako narzędzie zła: traci duszę dla władzy i rozkoszy","Dualistyczny obraz: aniołowie i diabły walczą dosłownie o dusze ludzi"],konteksty:["Biblia (Hiob -- szatan jako kusiciel)","Makbet (Lady Makbet jako demon)","Dżuma (zło bezosobowe jako choroba)"]},
+ {id:28,lektura:"Mickiewicz, Dziady III",pytanie:"Czym dla człowieka może być wolność? Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Wolność",epoka:"Romantyzm",odpowiedz:["Wolność narodowa: główne pragnienie -- Polska zniewolona przez zaborców, więzień jako metafora narodu","Wolność duchowa: Konrad wolny w duchu mimo krat -- romantycy cenią wolność wewnętrzną","Wolność od Boga? Konrad żąda autonomii -- chce być jak Bóg, co prowadzi do bluźnierstwa","Paradoks: więzień (Konrad) jest bardziej wolny niż kolaboranci na wolności"],konteksty:["Rok 1984 (niemożność wolności w totalitaryzmie)","Antygona (wolność sumienia)","Inny świat (wolność w łagrze)"]},
+ {id:29,lektura:"Mickiewicz, Dziady III",pytanie:"Motyw samotności. Omów zagadnienie na podstawie Dziadów części III.",krotkie:"Samotność",epoka:"Romantyzm",odpowiedz:["Konrad w celi: samotność poety-geniusza niemogącego porozumieć się z pospolitymi ludźmi","Wielka Improwizacja: Konrad sam przemawia do Boga -- nikt go nie rozumie","Matka Rollisona: samotność w bólu, odcięta od syna zsyłanego na Syberię","Samotność w tłumie: bal u Senatora -- moralna samotność wśród kolaborantów"],konteksty:["Lalka (Wokulski samotny wśród arystokracji)","Ferdydurke (jednostka vs. tłum)","Dżuma (Rieux -- samotność lekarza)"]},
+ {id:30,lektura:"Prus, Lalka",pytanie:"Miłość - siła destrukcyjna czy motywująca do działania? Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Miłość w Lalce",epoka:"Pozytywizm",odpowiedz:["Wokulski zakochuje się w Izabeli Łęckiej -- to miłość przekraczająca bariery klasowe","Miłość motywuje: Wokulski robi fortunę, angażuje się w działalność charytatywną, by zdobyć Izabelę","Miłość niszczy: obsesja na Izabeli nie pozwala Wokulskiemu żyć, inwestować w siebie","Izabela nie kocha -- używa Wokulskiego; miłość jednostronna jako tragedia"],konteksty:["Mitologia (Orfeusz i Eurydyka)","Zbrodnia i kara (zdrowa miłość vs. obsesja)","Dziady III (Gustaw -- miłość romantyczna)"]},
+ {id:31,lektura:"Prus, Lalka",pytanie:"Praca jako pasja człowieka. Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Praca jako pasja",epoka:"Pozytywizm",odpowiedz:["Rzecki: praca w sklepie Wokulskiego jako sens życia, lojalność i rzemiosło","Wokulski -- praca naukowa i handlowa, ale napędzana miłością, nie pasją w czystej formie","Pozytywizm głosi: praca organiczna, praca u podstaw -- Lalka jest krytyką tej utopii","Ochocki: naukowiec z pasją, planuje uciec za granicę -- jedyna postać z prawdziwym powołaniem"],konteksty:["Przedwiośnie (praca w odbudowie Polski)","Zbrodnia i kara (lenistwo vs. aktywność Raskolnikowa)"]},
+ {id:32,lektura:"Prus, Lalka",pytanie:"Jaką rolę w relacjach międzyludzkich odgrywają majątek i pochodzenie? Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Majątek i pochodzenie",epoka:"Pozytywizm",odpowiedz:["Wokulski: bogaty kupiec bez tytułu -- odrzucony przez arystokrację mimo majątku","Łęccy: biedni arystokraci -- pochodzenie ważniejsze niż rzeczywistość ekonomiczna","Klasowa hipokryzja: arystokracja gardzi kupcami, ale bierze ich pieniądze","Majątek otwiera drzwi ale nie serce -- Izabela woli ubogiego arystokratę niż bogatego kupca"],konteksty:["Skąpiec (majątek w relacjach)","Wesele (chłopi i inteligencja)","Przedwiośnie (klasy społeczne w II RP)"]},
+ {id:33,lektura:"Prus, Lalka",pytanie:"Konfrontacja marzeń z rzeczywistością. Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Marzenia vs rzeczywistość",epoka:"Pozytywizm",odpowiedz:["Wokulski marzy o miłości Izabeli -- rzeczywistość: jest nią wzgardzony","Rzecki marzy o napoleońskich ideałach -- rzeczywistość: Polska pod zaborami, stary subiekt w sklepie","Pozytywizm jako marzenie o naukowym postępie -- Lalka pokazuje jego granice","Rozczarowanie jest fundamentalne dla pesymistycznej wymowy powieści"],konteksty:["Dziady III (mesjanizm vs. rzeczywistość)","Przedwiośnie (utopia szklanych domów)","Makbet (ambicja vs. rzeczywistość moralna)"]},
+ {id:34,lektura:"Prus, Lalka",pytanie:"Miasto - przestrzeń przyjazna czy wroga człowiekowi? Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Miasto w Lalce",epoka:"Pozytywizm",odpowiedz:["Warszawa jako przestrzeń klasowego podziału: Powiśle (nędza) vs. Aleje (bogactwo)","Wokulski obserwuje miasto z perspektywy różnych klas -- jest między nimi","Miejska bieda jest realistycznie pokazana -- wpływ naturalizmu na Prusa","Miasto jest zimne, obce -- Wokulski nigdy się nie wpisuje w żadną klasę"],konteksty:["Chłopi (wieś jako wspólnota)","Przedwiośnie (Baku, Warszawa)","współczesna urbanistyka -- gentryfikacja"]},
+ {id:35,lektura:"Prus, Lalka",pytanie:"Czym dla człowieka mogą być wspomnienia? Omów zagadnienie na podstawie Lalki Bolesława Prusa.",krotkie:"Rola wspomnień",epoka:"Pozytywizm",odpowiedz:["Pamiętnik Rzeckiego: wspomnienia napoleońskie dają sens jego szarej teraźniejszości","Wokulski wspomina lata nauki za granicą -- nostalgiczny obraz możliwości których nie wykorzystał","Wspomnienia jako azyl od bolesnej teraźniejszości -- ale też pułapka","Rzecki żyje przeszłością -- idealizuje Napoleona, nie widzi zmieniającego się świata"],konteksty:["Podróże z Herodotem (pamięć historyczna)","Dziady III (wspomnienia narodu)"]},
+ {id:36,lektura:"Sienkiewicz, Potop",pytanie:"Postawy odwagi i tchórzostwa. Omów zagadnienie na podstawie fragmentów Potopu Henryka Sienkiewicza.",krotkie:"Odwaga i tchórzostwo",epoka:"Pozytywizm",odpowiedz:["Kmicic: zaczyna od zdrady (Szwedzi), przechodzi przemianę -- staje się bohaterem (Jasna Góra)","Bohaterstwo jest procesem -- można naprawić błędy czynem","Radziwiłł: kolaborant dla ambicji -- tchórzostwo moralne ważniejsze niż fizyczne","Obrona Jasnej Góry: zbiorowy akt odwagi mimo przewagi wroga -- mit narodowy"],konteksty:["Roland (odwaga aż do śmierci)","Achilles (walka z losem)","historia: potop szwedzki 1655-1660"]},
+ {id:37,lektura:"Dostojewski, Zbrodnia i kara",pytanie:"Walka człowieka ze swoimi słabościami. Omów zagadnienie na podstawie Zbrodni i kary Fiodora Dostojewskiego.",krotkie:"Walka ze słabościami",epoka:"Realizm",odpowiedz:["Raskolnikow walczy z teorią nadczłowieka -- chce udowodnić sobie że może zabić i żyć ponad moralnością","Wewnętrzny konflikt trwa przez całą powieść -- sumienie go niszczy mimo racjonalizacji","Sonia reprezentuje wiarę i pokorę -- kontrast ze słabością Raskolnikowa","Finał: przyznanie się do winy jako zwycięstwo nad własną pychą"],konteksty:["Makbet (sumienie)","Dziady III (walka Konrada)","psychologia: Freud -- mechanizmy obronne"]},
+ {id:38,lektura:"Dostojewski, Zbrodnia i kara",pytanie:"Motyw winy i kary. Omów zagadnienie na podstawie Zbrodni i kary Fiodora Dostojewskiego.",krotkie:"Wina i kara",epoka:"Realizm",odpowiedz:["Raskolnikow zabija lichwiarę (i jej siostrę przez przypadek) -- kara przychodzi przez sumienie, nie prawo","Psychologiczna kara: gorączka, urojenia, niemożność normalnego życia -- przed aresztem","Kara prawna (Syberia) okazuje się wybawieniem -- Sonia idzie za nim, zaczyna się przemiana","Dostojewski pokazuje że prawdziwa kara jest wewnętrzna, moralna"],konteksty:["Makbet (kara przez sumienie)","Mitologia (Syzyf, Tantalos)","Antygona (prawo moralne)"]},
+ {id:39,lektura:"Dostojewski, Zbrodnia i kara",pytanie:"Ile człowiek jest gotów poświęcić dla innych? Omów zagadnienie na podstawie Zbrodni i kary Fiodora Dostojewskiego.",krotkie:"Poświęcenie dla innych",epoka:"Realizm",odpowiedz:["Sonia Marmieładowa: prostytuje się żeby utrzymać rodzinę -- skrajne poświęcenie","Raskolnikow: w teorii chce poświęcić zbrodnię dla wyższego dobra -- ale to racjonalizacja","Dunya (siostra): gotowa wyjść za Łużyna dla brata","Kontrast Soni i Raskolnikowa: prawdziwe poświęcenie (Sonia) vs. egotystyczna zbrodnia"],konteksty:["Dżuma (Rieux i Tarrou -- poświęcenie wobec zarazy)","Mitologia (Prometeusz)","Biblia (Chrystus)"]},
+ {id:40,lektura:"Dostojewski, Zbrodnia i kara",pytanie:"Co może determinować ludzkie postępowanie? Omów zagadnienie na podstawie Zbrodni i kary Fiodora Dostojewskiego.",krotkie:"Determinizm ludzkiego działania",epoka:"Realizm",odpowiedz:["Bieda determinuje los Sonii i rodziny Marmieładowych -- determinizm społeczny","Teoria Raskolnikowa: filozofia nadczłowieka determinuje czyn -- determinizm ideologiczny","Dostojewski polemizuje z determinizmem: Sonia w tej samej biedzie wybiera dobro","Wolna wola vs. determinizm -- centralne pytanie powieści"],konteksty:["Ferdydurke (presja otoczenia)","Rok 1984 (system determinuje zachowanie)","filozofia: Sartre -- jesteśmy skazani na wolność"]},
+ {id:41,lektura:"Dostojewski, Zbrodnia i kara",pytanie:"Motyw przemiany bohatera. Omów zagadnienie na podstawie Zbrodni i kary Fiodora Dostojewskiego.",krotkie:"Przemiana bohatera",epoka:"Realizm",odpowiedz:["Raskolnikow: od pyszałkowatego intelektualisty do człowieka pokornego (epilog -- Syberia)","Przemiana przez miłość do Sonii i powrót do wiary","Droga: zbrodnia -> sumienie -> przyznanie się -> katharsis -> odrodzenie","Chrześcijański wzorzec nawrócenia: wzorowany na powrocie syna marnotrawnego"],konteksty:["Potop (przemiana Kmicica)","Biblia (syn marnotrawny)","Dziady III (Gustaw -> Konrad)"]},
+ {id:42,lektura:"Wyspiański, Wesele",pytanie:"Co utrudnia porozumienie między przedstawicielami różnych grup społecznych? Omów zagadnienie na podstawie Wesela.",krotkie:"Bariery społeczne w Weselu",epoka:"Młoda Polska",odpowiedz:["Chłopi i inteligencja: inteligencja romantyzuje chłopów (Rydel), nie rozumie ich rzeczywistości","Pan Młody mówi o chłopach jak o sile narodowej, ale traktuje ich jako egzotykę","Gospodarz i Czepiec: różne języki, wartości, oczekiwania -- chłop realista, inteligent ideolog","Wzajemne stereotypy i historyczna uraza (rzeź galicyjska 1846) uniemożliwiają dialog"],konteksty:["Lalka (klasowa bariera)","Chłopi (świat zamknięty na zewnątrz)","współczesna polaryzacja społeczna"]},
+ {id:43,lektura:"Wyspiański, Wesele",pytanie:"Rola chłopów i inteligencji w sprawie niepodległościowej. Omów zagadnienie na podstawie Wesela.",krotkie:"Chłopi i inteligencja",epoka:"Młoda Polska",odpowiedz:["Inteligencja poetyzuje walkę o niepodległość, ale jest niezdolna do czynu","Czepiec: chłop gotowy walczyć -- pyta czy można by Wiednia wziąć","Jasiek gubi złoty róg bawiąc się -- metafora zaprzepaszczonej szansy na powstanie","Chochoł: symbol narodowego uśpienia, niezdolności do działania"],konteksty:["Dziady III (mesjanizm)","Potop (chłopi i szlachta)","historia: ruchy chłopskie"]},
+ {id:44,lektura:"Wyspiański, Wesele",pytanie:"Sen o Polsce czy sąd nad Polską? Omów zagadnienie na podstawie Wesela Stanisława Wyspiańskiego.",krotkie:"Sen o Polsce czy sąd",epoka:"Młoda Polska",odpowiedz:["Wesele to dramat symboliczny -- realna bronowicka wioska i mity narodowe się przenikają","Zjawiska (Wernyhora, Rycerz, Szela) to sąd: Polska przesypia swoją szansę","Chochoł na końcu: wszyscy tańczą w kółko w marazmie -- nie ma czynu, jest letarg","Wyspiański nie romantyzuje -- oskarża obie warstwy o niemoc"],konteksty:["Dziady III (mesjanizm vs. rozczarowanie)","Lalka (marzenia vs. rzeczywistość)","Tango (krytyka porządku społecznego)"]},
+ {id:45,lektura:"Wyspiański, Wesele",pytanie:"Symboliczne znaczenie widm i zjaw. Omów zagadnienie na podstawie Wesela Stanisława Wyspiańskiego.",krotkie:"Widma i zjawy",epoka:"Młoda Polska",odpowiedz:["Widma są materializacją lęków i marzeń postaci: Stańczyk (Dziennikarz) -- wyrzuty sumienia","Wernyhora (Gospodarz) -- wezwanie do czynu, złoty róg dla Jaśka","Rycerz Czarny (Pan Młody) -- śmierć romantycznych złudzeń","Szela (Dziad) -- uosobienie historycznej urazy chłopskiej","Widma = psychologia zbiorowa narodu, nie duchy literalne"],konteksty:["Dziady III (duchy, widzenia)","Makbet (duch Banka)","psychologia: Jung -- archetypy"]},
+ {id:46,lektura:"Wyspiański, Wesele",pytanie:"Motyw tańca. Omów zagadnienie na podstawie Wesela Stanisława Wyspiańskiego.",krotkie:"Taniec w Weselu",epoka:"Młoda Polska",odpowiedz:["Taniec weselny: radość, ale i chaos, utrata kontroli -- Polska jako jedno wielkie wesele bez celu","Chochoł: końcowy taniec w kółko to symbol marazmu, zaklętego kręgu niemożności","Danse macabre -- nawiązanie do średniowiecznego tańca śmierci (narodu)","Taniec bez muzyki od Chochoła: mechaniczność, bezwolność -- automaty nie ludzie"],konteksty:["Rozmowa Polikarpa (taniec śmierci)","Tango (tytułowy taniec jako symbol porządku)"]},
+ {id:47,lektura:"Reymont, Chłopi",pytanie:"Obyczaj i tradycja w życiu społeczeństwa. Omów zagadnienie na podstawie fragmentów Chłopów Władysława Stanisława Reymonta.",krotkie:"Tradycja w Chłopach",epoka:"Młoda Polska",odpowiedz:["Lipce: rok obrzędowy rytmizuje życie -- Wielkanoc, Boże Narodzenie, żniwa jako trwała struktura","Tradycja jako spoiwo społeczne: kto ją łamie (np. Jagna) jest wykluczony","Wesele, pogrzeb, jarmark -- rytuały wzmacniają wspólnotę wiejską","Konflikt: Antek chce indywidualności, wieś wymaga podporządkowania się tradycji"],konteksty:["Wesele (obrzędowość)","Lament świętokrzyski (religijność ludowa)","antropologia: Geertz -- kultura jako sieć znaczeń"]},
+ {id:48,lektura:"Żeromski, Przedwiośnie",pytanie:"Jakie znaczenie ma tytuł dla odczytania sensu utworu? Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Znaczenie tytułu -- Przedwiośnie",epoka:"Dwudziestolecie",odpowiedz:["Przedwiośnie = czas przed wiosną -- Polska po odzyskaniu niepodległości to nie wiosna, lecz oczekiwanie, niedopełnienie","Symbol: Polska jest jeszcze 'przed' -- nie osiągnęła dojrzałości, sprawiedliwości, stabilności","Cezary Baryka: też jest w przedwiośniu -- szuka swojej drogi, nie dojrzał do decyzji","Finał: Cezary idzie w pochód robotniczy -- czy to już wiosna? Odpowiedź niejednoznaczna"],konteksty:["Dziady III (oczekiwanie na wolność)","Lalka (marzenia vs. rzeczywistość)","Inny świat (tytułowy sens)"]},
+ {id:49,lektura:"Żeromski, Przedwiośnie",pytanie:"Wojna i rewolucja jako źródła doświadczeń człowieka. Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Wojna i rewolucja",epoka:"Dwudziestolecie",odpowiedz:["Baku: rewolucja rosyjska -- Cezary widzi masakrę Ormian, matka umiera","Rewolucja jako chaos i krew -- Żeromski obala mit pięknej rewolucji","Żołnierz na wojnie polsko-bolszewickiej: trauma, ale i kształtowanie się tożsamości","Doświadczenie skrajne kształtuje człowieka -- dobre lub złe, nie ma neutralnych"],konteksty:["Borowski (obóz koncentracyjny)","Herling-Grudziński (łagier)","Hanna Krall (getto)"]},
+ {id:50,lektura:"Żeromski, Przedwiośnie",pytanie:"Różne wizje odbudowy Polski po odzyskaniu niepodległości. Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Wizje odbudowy Polski",epoka:"Dwudziestolecie",odpowiedz:["Szklane domy ojca: utopia -- piękna wizja, kompletnie nierealna (drewniane chaty w rzeczywistości)","Gajowiec: reformy stopniowe, praca organiczna, ewolucja -- pozytywistyczna droga","Lulek: rewolucja komunistyczna -- obalić cały system, zacząć od nowa","Żeromski nie wskazuje zwycięzcy -- każda droga ma wady"],konteksty:["Dziady III (mesjanizm jako wizja)","Lalka (praca organiczna -- pozytywizm)","historia: II RP 1918-1939"]},
+ {id:51,lektura:"Żeromski, Przedwiośnie",pytanie:"Młodość jako czas kształtowania własnej tożsamości. Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Młodość i tożsamość",epoka:"Dwudziestolecie",odpowiedz:["Cezary przechodzi przez różne środowiska i ideologie -- szuka siebie, nie należy do żadnego","Baku, Warszawa, Nawłoć (dworek szlachecki), ruch robotniczy -- każde miejsce go formuje","Adolescencja jako seria prób i błędów -- każdy wybór ma konsekwencje","Cezary jako pokolenie bez zakorzenienia -- typowy bohater nowej epoki"],konteksty:["Ferdydurke (problem z tożsamością, dojrzałością)","Rok 1984 (kształtowanie przez system)","psychologia: Erikson -- tożsamość w młodości"]},
+ {id:52,lektura:"Żeromski, Przedwiośnie",pytanie:"Rola autorytetu w życiu człowieka. Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Autorytet",epoka:"Dwudziestolecie",odpowiedz:["Ojciec Baryka: autorytet idealisty -- szklane domy jako piękna utopia dzieciństwa","Gajowiec: autorytet racjonalnego reformatora -- Cezary go słucha ale nie akceptuje w pełni","Brak stałego autorytetu -> Cezary rzuca się między ideologiami","Autorytet w próbie: gdy ojciec umiera, Cezary musi sam wybrać drogę"],konteksty:["Dziady III (Konrad vs. Bóg -- kwestionowanie autorytetu)","Zbrodnia i kara (Raskolnikow odrzuca autorytety moralne)"]},
+ {id:53,lektura:"Żeromski, Przedwiośnie",pytanie:"Utopijny i realny obraz rzeczywistości. Omów zagadnienie na podstawie Przedwiośnia Stefana Żeromskiego.",krotkie:"Utopia vs rzeczywistość",epoka:"Dwudziestolecie",odpowiedz:["Szklane domy: piękna utopia ojca -- zderzenie z brutalną rzeczywistością drewnianych chałup","Nawłoć: sielanka szlachecka (piękna, ale niesprawiedliwa ekonomicznie) vs. nędza robotnicza","Rewolucja jako nowa utopia -- Cezary widział jej skutki w Baku (masakra)","Żeromski jako krytyk utopii: każdy piękny sen zderza się z rzeczywistością"],konteksty:["Rok 1984 (totalitarna utopia Wielkiego Brata)","Lalka (marzenia Wokulskiego)","Dziady III (mesjanizm)"]},
+ {id:54,lektura:"Gombrowicz, Ferdydurke",pytanie:"Groteskowy obraz świata. Omów zagadnienie na podstawie fragmentów Ferdydurke Witolda Gombrowicza.",krotkie:"Groteska w Ferdydurke",epoka:"Dwudziestolecie",odpowiedz:["Groteska: połączenie komizmu i grozy, deformacja rzeczywistości -- szkoła jako absurd, profesorowie jako karykatury","Upupienie: Józio mimo 30 lat wraca do szkoły -- świat bez logiki, bez konsekwencji","Czopek: symbol fałszywych form narzucanych przez społeczeństwo","Pupa, gęba, łydka -- groteskowe metonimie ograniczeń społecznych"],konteksty:["Wesele (groteska i symbol)","Tango (absurdalny świat)","Kafka -- Przemiana (groteska egzystencjalna)"]},
+ {id:55,lektura:"Gombrowicz, Ferdydurke",pytanie:"Człowiek wobec presji otoczenia. Omów zagadnienie na podstawie fragmentów Ferdydurke Witolda Gombrowicza.",krotkie:"Presja otoczenia",epoka:"Dwudziestolecie",odpowiedz:["Józio jest upupiony przez Pimkę -- dorośli narzucają mu formę dziecka wbrew jego woli","Nowoczesna pensjonarka: presja mody i nowoczesności kontra tradycja -- Józio uwięziony między rolami","Gombrowicz: człowiek nigdy nie jest sobą -- zawsze jest kształtowany przez gębę narzuconą przez innych","Forma jest więzieniem: gęba, mina, rola społeczna -- uciec się nie da"],konteksty:["Rok 1984 (państwo kształtuje człowieka)","Przedwiośnie (Cezary szukający tożsamości)","Skąpiec (Harpagon -- rola skąpca)"]},
+ {id:56,lektura:"Borowski, Proszę państwa do gazu",pytanie:"'Człowiek zlagrowany' jako ofiara zbrodniczego systemu. Omów zagadnienie na podstawie utworu Proszę państwa do gazu Tadeusza Borowskiego.",krotkie:"Człowiek zlagrowany",epoka:"Literatura wojenna",odpowiedz:["Tadek: narrator beznamiętny, obojętny -- uczucia zostały odebrane przez obóz (mechanizm przetrwania)","Człowiek zlagrowany: niszczy własne człowieczeństwo żeby przeżyć (bierze rzeczy od gazowanych)","System totalitarny niszczy moralność -- nie tylko ofiary, ale i ci którzy przeżyją","Borowskiego oskarżenie własne: patrzy na śmierć innych, nie reaguje -- to jest właśnie 'zlagrowanie'"],konteksty:["Inny świat (łagier)","Hanna Krall (getto)","Rok 1984 (system niszczy człowieka)"]},
+ {id:57,lektura:"Herling-Grudziński, Inny świat",pytanie:"Jakie znaczenie ma tytuł dla odczytania sensu utworu? Omów zagadnienie na podstawie Innego świata Gustawa Herlinga-Grudzińskiego.",krotkie:"Tytuł -- Inny świat",epoka:"Literatura wojenna",odpowiedz:["Inny świat = łagier sowiecki -- system zupełnie odmienny od cywilizowanego świata, rządzący się własnymi prawami","Nawiązanie do Dostojewskiego: Zapiski z martwego domu -- ciągłość doświadczenia rosyjskiej przemocy","Łagier jako anty-świat: odwrócone wartości, życie jako walka o kawałek chleba","Tytuł sugeruje że to nie wyjątek ale alternatywna cywilizacja -- co mówi o naturze człowieka?"],konteksty:["Rok 1984 (dystopijny inny świat)","Borowski (obóz koncentracyjny jako inny świat)","Dżuma (zaraza jako inny świat)"]},
+ {id:58,lektura:"Herling-Grudziński, Inny świat",pytanie:"Konsekwencje zniewolenia człowieka. Omów zagadnienie na podstawie Innego świata Gustawa Herlinga-Grudzińskiego.",krotkie:"Konsekwencje zniewolenia",epoka:"Literatura wojenna",odpowiedz:["Fizyczne: głód, zimno, choroba -- ciało łagrowe jako ruin po człowieku","Psychiczne: donosicielstwo, upodlenie, utrata godności -- system zmusza do zdrady","Moralne: Kostylew -- opór przez samookaleczenie; Natalia Lwowna -- opór przez seks i miłość","Herling-Grudziński: człowiek może zachować godność, ale cena jest ogromna"],konteksty:["Borowski (upodlenie w obozie)","Rok 1984 (Winston Smith -- zniewolenie psychiczne)","Hanna Krall (godność w getcie)"]},
+ {id:59,lektura:"Hanna Krall, Zdążyć przed Panem Bogiem",pytanie:"Czy możliwe jest zachowanie godności w skrajnych sytuacjach? Omów zagadnienie na podstawie Zdążyć przed Panem Bogiem Hanny Krall.",krotkie:"Godność w sytuacjach skrajnych",epoka:"Współczesność",odpowiedz:["Marek Edelman i powstańcy: wybierają walkę mimo wiedzy o przegranej -- godność przez czyn","Zdążyć przed Panem Bogiem = umrzeć z bronią, nie w komorze gazowej -- wybór sposobu śmierci jako godność","Edelman po wojnie jako kardiolog: ratowanie życia jako kontynuacja misji","Godność możliwa, ale wymaga wyboru wbrew instynktowi przetrwania"],konteksty:["Inny świat (Kostylew -- opór przez samookaleczenie)","Borowski (utrata godności)","Antygona (śmierć jako godny wybór)"]},
+ {id:60,lektura:"Hanna Krall, Zdążyć przed Panem Bogiem",pytanie:"Zagłada z perspektywy świadka i uczestnika wydarzeń w getcie. Omów zagadnienie na podstawie Zdążyć przed Panem Bogiem Hanny Krall.",krotkie:"Perspektywa świadka Zagłady",epoka:"Współczesność",odpowiedz:["Reportaż-wywiad: Krall pyta, Edelman odpowiada -- perspektywa uczestnika (komendant ZOB)","Edelman mówi spokojnie, bez patosu -- to dezorientuje, ale to strategia świadka","Szczegółowość: 300 000 Żydów wywiezionych do Treblinki, liczby, daty -- pieczołowitość pamięci","Świadek jako strażnik pamięci -- obowiązek mówienia prawdy mimo że to boli"],konteksty:["Podróże z Herodotem (rola świadka historii)","Inny świat (perspektywa więźnia)","historia: Holokaust"]},
+ {id:61,lektura:"Hanna Krall, Zdążyć przed Panem Bogiem",pytanie:"Walka o życie z perspektywy wojennej i powojennej. Omów zagadnienie na podstawie Zdążyć przed Panem Bogiem Hanny Krall.",krotkie:"Walka o życie",epoka:"Współczesność",odpowiedz:["Getto: walka o życie dosłowna -- racje żywnościowe, kontrabanda, ukrywanie się","Edelman po wojnie: walka o życie chorych serca jako kardiolog -- metafora","Tytuł: zdążyć przed Panem Bogiem = umrzeć po swojemu, z sensem","Ocalały i jego dług: Edelman żyje, inni nie -- jak żyć z tym ciężarem?"],konteksty:["Dżuma (Rieux -- lekarz walczący o życie)","Borowski (przeżycie za cenę człowieczeństwa)","egzystencjalizm: Camus"]},
+ {id:62,lektura:"Camus, Dżuma",pytanie:"Co skłania człowieka do poświęceń? Omów zagadnienie na podstawie Dżumy Alberta Camusa.",krotkie:"Poświęcenie w Dżumie",epoka:"Współczesność",odpowiedz:["Rieux: leczy chorych mimo że sam może zachorować -- z poczucia obowiązku, bez heroizmu","Tarrou: organizuje sanitariuszy, nie chce być po stronie mordercy (systemu, dżumy)","Rambert: początkowo chce uciec, potem zostaje -- miłość do Rieux i solidarność","Poświęcenie u Camusa: bez Boga, bez nagrody -- czysto ludzkie, absurdalne i piękne"],konteksty:["Zbrodnia i kara (Sonia -- poświęcenie)","Mitologia (Prometeusz)","Borowski (brak poświęcenia = przeżycie)"]},
+ {id:63,lektura:"Camus, Dżuma",pytanie:"Człowiek wobec cierpienia i śmierci. Omów zagadnienie na podstawie Dżumy Alberta Camusa.",krotkie:"Cierpienie i śmierć",epoka:"Współczesność",odpowiedz:["Dżuma = absurdalność śmierci: umierają niewinni, w tym dzieci -- pytanie o sens","Paneloux: ksiądz zmienia kazania -- od 'to kara boska' do 'musimy cierpieć razem'","Cottard: kwitnie podczas zarazy -- śmierć innych daje mu życie","Camus: egzystencjalizm -- nie ma sensu wyższego, jest tylko ludzka solidarność"],konteksty:["Biblia -- Hiob","Inny świat (cierpienie w łagrze)","filozofia: Camus -- Absurd"]},
+ {id:64,lektura:"Camus, Dżuma",pytanie:"Czy możliwa jest przyjaźń w sytuacjach skrajnych? Omów zagadnienie na podstawie Dżumy Alberta Camusa.",krotkie:"Przyjaźń w sytuacjach skrajnych",epoka:"Współczesność",odpowiedz:["Rieux i Tarrou: przyjaźń zrodzona w walce z dżumą -- szczerość, wzajemne zaufanie","Tarrou umiera -- Rieux traci przyjaciela; ból straty obok profesjonalizmu","Rambert i Rieux: przyjaźń sprawia, że Rambert zostaje mimo szansy ucieczki","Skrajność wydobywa prawdziwą naturę człowieka -- przyjaźń możliwa, nawet bardziej autentyczna"],konteksty:["Zbrodnia i kara (Raskolnikow i Sonia)","Borowski (czy przyjaźń możliwa w obozie?)","Inny świat"]},
+ {id:65,lektura:"Camus, Dżuma",pytanie:"Jakie postawy przyjmuje człowiek wobec zła? Omów zagadnienie na podstawie Dżumy Alberta Camusa.",krotkie:"Postawy wobec zła",epoka:"Współczesność",odpowiedz:["Rieux: walka bezpośrednia bez ideologii -- leczyć, bo tak trzeba","Tarrou: zło systemowe (prawo śmierci) -- chce być 'po właściwej stronie'","Cottard: korzystanie ze zła -- oportunizm","Paneloux: interpretacja religijna -- zło jako próba Boga","Grand: heroizm małych gestów -- statystyki, listy, biurokracja jako walka"],konteksty:["Rok 1984 (kolaboracja, opór)","Wesele (bierność)","Biblia (Hiob -- pokora wobec zła)"]},
+ {id:66,lektura:"Orwell, Rok 1984",pytanie:"Czy możliwe jest zbudowanie doskonałego państwa? Omów zagadnienie na podstawie Roku 1984 George'a Orwella.",krotkie:"Utopia totalitarna",epoka:"Współczesność",odpowiedz:["Oceania: Wielki Brat, Partia -- doskonały system kontroli. Ale to dystopia, nie utopia","Każda próba stworzenia doskonałego państwa degeneruje w totalitaryzm -- historia (ZSRR, nazizm)","'Doskonałe' = idealne dla władzy, nie dla obywateli","Orwell: utopia bez wolności to więzienie -- 2+2=5 jeśli Partia tak każe"],konteksty:["Przedwiośnie (szklane domy)","historia: Stalinizm, Nazizm","filozofia polityki: Popper -- Otwarte społeczeństwo"]},
+ {id:67,lektura:"Orwell, Rok 1984",pytanie:"Jak zachować wolność w państwie totalitarnym? Omów zagadnienie na podstawie Roku 1984 George'a Orwella.",krotkie:"Wolność w totalitaryzmie",epoka:"Współczesność",odpowiedz:["Winston Smith: dziennik, romans z Julią -- próby zachowania prywatności i wolności myśli","O'Brien i Pokój 101: ostatecznie każdy zostaje złamany -- zdrada Julii","Ale: sam akt myślenia inaczej jest wolnością, choć prowadzi do śmierci","Julia: wolność ciała (hedonizm) vs. Winston: wolność umysłu -- dwie strategie"],konteksty:["Dziady III (wolność wewnętrzna mimo więzienia)","Inny świat (opór w łagrze)","filozofia: Sartre -- wolność jako odpowiedzialność"]},
+ {id:68,lektura:"Orwell, Rok 1984",pytanie:"Znaczenie propagandy w państwie totalitarnym. Omów zagadnienie na podstawie Roku 1984 George'a Orwella.",krotkie:"Propaganda",epoka:"Współczesność",odpowiedz:["Ministerstwo Prawdy: historia jest przepisywana na bieżąco -- przeszłość zależy od Partii","Dwójmyślenie (doublethink): wierzyć w dwie sprzeczne prawdy równocześnie","Dwa Minuty Nienawiści: propaganda jako rytuał zbiorowy -- emocje zastępują myślenie","Nowomowa: ograniczenie języka = ograniczenie myślenia"],konteksty:["Wesele (manipulacja narodowa)","Dziady III (propaganda zaborcy)","współczesne media i dezinformacja"]},
+ {id:69,lektura:"Orwell, Rok 1984",pytanie:"Nowomowa jako sposób na ograniczenie wolności człowieka. Omów zagadnienie na podstawie Roku 1984 George'a Orwella.",krotkie:"Nowomowa",epoka:"Współczesność",odpowiedz:["Newspeak: eliminacja słów -> eliminacja myśli -- nie można myśleć o wolności jeśli nie ma słowa 'wolność'","Cel: uniemożliwienie zbrodni myślowej przez zubożenie języka","Skróty: Angosoc, Minimiłe, Minipraw -- język zwięzły, bez odcieni znaczeniowych","Lingwistyczna kontrola umysłu: Orwell przewidział propagandę XX/XXI w."],konteksty:["Dziady III (cenzura zaborcy)","Ferdydurke (gęba = narzucony język roli)","językoznawstwo: Sapir-Whorf"]},
+ {id:70,lektura:"Mrożek, Tango",pytanie:"Bunt przeciwko porządkowi społecznemu. Omów zagadnienie na podstawie Tanga Sławomira Mrożka.",krotkie:"Bunt w Tangu",epoka:"Współczesność",odpowiedz:["Artur buntuje się przeciw... braku norm. Jego rodzina jest tak wolna, że nie ma o co walczyć","Paradoks: konserwatysta w rodzinie rewolucjonistów -- bunt poprzez przywrócenie porządku","Artur chce wesela bo chce rytuału, formy -- tęskni za strukturą","Kończy jako tyran (nie może zmienić ludzi wolą) -- bunt przechodzi w przemoc"],konteksty:["Ferdydurke (bunt Józia)","Wesele (porządek społeczny)","Rok 1984 (system jako odpowiedź na chaos)"]},
+ {id:71,lektura:"Mrożek, Tango",pytanie:"Konflikt pokoleń. Omów zagadnienie na podstawie Tanga Sławomira Mrożka.",krotkie:"Konflikt pokoleń",epoka:"Współczesność",odpowiedz:["Starsze pokolenie (Stomil, Eleonora): liberałowie, awangardziści -- zniszczyli konwenanse","Artur (syn): pragnie tradycji, norm, sensu -- buntuje się przeciw rodzicom","Ala: pokolenie hedonistów -- nie interesuje jej ani tradycja ani bunt","Edek: prymitywna siła bez ideologii, wygrywa -- nowe pokolenie barbarzyńców"],konteksty:["Skąpiec (ojciec vs. dzieci)","Dziady III (pokolenie Konrada vs. starsze)","współczesna polityka pokoleniowa"]},
+ {id:72,lektura:"Mrożek, Tango",pytanie:"Normy społeczne - ograniczają człowieka czy porządkują życie? Omów zagadnienie na podstawie Tanga Sławomira Mrożka.",krotkie:"Normy społeczne",epoka:"Współczesność",odpowiedz:["Bez norm (rodzina Stomila): chaos, brak sensu, nic się nie liczy -- wolność jako pustka","Artur próbuje wprowadzić normy siłą -- ale narzucone normy to tyrania","Edek: normy zbędne dla siły fizycznej -- nihilizm wygrywający","Mrożek nie daje odpowiedzi -- to pytanie otwarte, tragikomiczne"],konteksty:["Rok 1984 (normy jako narzędzie opresji)","Wesele (normy obyczajowe)","filozofia: Hobbes vs. Rousseau"]},
+ {id:73,lektura:"Nowakowski, Górą Edek",pytanie:"W jakim celu autor nawiązuje w swoim tekście do innego tekstu? Omów zagadnienie na podstawie Górą 'Edek' Marka Nowakowskiego.",krotkie:"Intertekstualność",epoka:"Współczesność",odpowiedz:["Nowakowski nawiązuje do Tanga Mrożka -- Edek z Tanga staje się symbolem prymitywnej siły wygrywającej","Intertekstualność: tekst wzbogacony o poprzedni kontekst -- czytelnik rozpoznaje i uzupełnia sens","Cel: aktualizacja archetypów -- Edek jako typ mentalny obecny w Polsce po 1989","Aluzja literacka autoryzuje krytykę społeczną -- używa autorytetu Mrożka"],konteksty:["Tango (źródło Edka)","Wesele (Szela -- nawiązanie do historii)","Biblia w Dziadach (cel nawiązania)"]},
+ {id:74,lektura:"Stasiuk, Miejsce",pytanie:"Miejsca ważne w życiu człowieka. Omów zagadnienie na podstawie Miejsca Andrzeja Stasiuka.",krotkie:"Ważne miejsca",epoka:"Współczesność",odpowiedz:["Miejsce (wieś w Beskidach): przestrzeń jako tożsamość, zakorzenienie, azyl od świata","Stasiuk: peryferyjne miejsca są ważniejsze niż centra cywilizacji","Miejsca pamięci: wieś galicyjska jako ślad historii, wielokulturowości","Człowiek bez miejsca jest bez tożsamości -- mit korzeni"],konteksty:["Chłopi (wieś jako centrum)","Lalka (miasto jako przestrzeń)","Podróże z Herodotem (podróż = szukanie miejsca)"]},
+ {id:75,lektura:"Tokarczuk, Profesor Andrews w Warszawie",pytanie:"Stan wojenny z perspektywy obcokrajowca. Omów zagadnienie na podstawie Profesor Andrews w Warszawie Olgi Tokarczuk.",krotkie:"Stan wojenny -- perspektywa obca",epoka:"Współczesność",odpowiedz:["Profesor Andrews: amerykański akademik w Warszawie stanu wojennego 1981 -- zdezorientowany outsider","Defamiliaryzacja: to co Polacy znają i przyjmują, obcokrajowiec widzi jako absurd i grozę","Tokarczuk: perspektywa z zewnątrz ujawnia to co normalizacja ukrywa","Szara rzeczywistość PRL widziana świeżymi oczami -- literatura jako lustro"],konteksty:["Rok 1984 (normalność totalitaryzmu)","Ferdydurke (obcy w swoim świecie)","historia: 13 grudnia 1981"]},
+ {id:76,lektura:"Kapuściński, Podróże z Herodotem",pytanie:"Czym dla człowieka może być podróżowanie? Omów zagadnienie na podstawie fragmentów Podróży z Herodotem Ryszarda Kapuścińskiego.",krotkie:"Podróżowanie",epoka:"Współczesność",odpowiedz:["Podróż jako poznanie Innego -- Kapuściński w Indiach, Chinach, Afryce uczy się że świat jest różny","Herodot jako patron podróżnika: ojciec historii był też podróżnikiem i reporterem","Podróż = przekraczanie granic mentalnych, nie tylko geograficznych","Ciekawość jako cnota -- pokonywanie lęku przed obcym, nieznanym"],konteksty:["Iliada (podróż Odysa)","Mitologia (Herakles -- podróże)","Miejsce Stasiuka (zakorzenienie vs. ruch)"]}
+];
+
+// EPOCH CLASSES
+const epochClass = {
+  'Antyk/Biblia':'ep-antyk','Średniowiecze':'ep-sr','Renesans/Barok':'ep-renbar',
+  'Oświecenie':'ep-oswiecenie','Klasycyzm':'ep-klasycyzm','Romantyzm':'ep-romantyzm',
+  'Pozytywizm':'ep-pozytywizm','Realizm':'ep-realizm','Młoda Polska':'ep-mlodapolska',
+  'Dwudziestolecie':'ep-dwudziestolecie','Literatura wojenna':'ep-wojenna','Współczesność':'ep-wspolczesnosc'
+};
+
+// TABS
+function switchTab(t, btn) {
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  if (btn) btn.classList.add('active');
+  document.getElementById('sec-' + t).classList.add('visible');
+}
+
+// PYTANIA
+let filtered = [...DATA];
+
+// Build filters
+const epoki = [...new Set(DATA.map(d => d.epoka))];
+const selEpoka = document.getElementById('filter-epoka');
+epoki.forEach(e => {
+  const o = document.createElement('option'); o.value = e; o.textContent = e;
+  selEpoka.appendChild(o);
+});
+const lektury = [...new Set(DATA.map(d => d.lektura))];
+const selLektura = document.getElementById('filter-lektura');
+lektury.forEach(l => {
+  const o = document.createElement('option'); o.value = l; o.textContent = l;
+  selLektura.appendChild(o);
+});
+
+function filterQ() {
+  const q = document.getElementById('search-input').value.toLowerCase();
+  const ep = document.getElementById('filter-epoka').value;
+  const lk = document.getElementById('filter-lektura').value;
+  filtered = DATA.filter(d => {
+    const mQ = !q || d.pytanie.toLowerCase().includes(q) || d.lektura.toLowerCase().includes(q) || d.krotkie.toLowerCase().includes(q);
+    const mE = !ep || d.epoka === ep;
+    const mL = !lk || d.lektura === lk;
+    return mQ && mE && mL;
+  });
+  renderQ();
+}
+
+function renderQ() {
+  document.getElementById('q-count').innerHTML =
+    `Wyświetlam <strong>${filtered.length}</strong> z ${DATA.length} pytań`;
+  document.getElementById('q-list').innerHTML = filtered.map(d => `
+    <div class="q-card" id="qc-${d.id}" onclick="toggleQ(${d.id})">
+      <div class="q-head">
+        <span class="q-num">${d.id}</span>
+        <div class="q-meta">
+          <div class="q-text">${d.pytanie}</div>
+          <div class="q-tags">
+            <span class="q-tag ${epochClass[d.epoka]||'ep-antyk'}">${d.epoka}</span>
+            <span class="q-tag" style="background:var(--paper2);color:var(--ink3);font-size:11px;padding:2px 9px;border-radius:999px">${d.lektura}</span>
+          </div>
+        </div>
+        <span class="q-expand-icon">▾</span>
+      </div>
+      <div class="q-body">
+        <div class="q-body-label">Jak omówić to zagadnienie</div>
+        ${d.odpowiedz.map(p => `<div class="q-point">${p}</div>`).join('')}
+        ${d.konteksty ? `<div class="q-contexts">
+          <div class="q-contexts-title">📎 Możliwe konteksty</div>
+          ${d.konteksty.map(c => `<span class="ctx-chip">${c}</span>`).join('')}
+        </div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function toggleQ(id) {
+  document.getElementById('qc-' + id).classList.toggle('expanded');
+}
+
+renderQ();
+
+// FISZKI
+let fcDeck = [], fcIndex = 0, fcFlipped = false, fcCategory = 'Wszystkie';
+let known = [], unknown = [];
+
+const epochsAll = ['Wszystkie', ...new Set(DATA.map(d => d.epoka))];
+const fcFil = document.getElementById('fc-filter');
+epochsAll.forEach(e => {
+  const btn = document.createElement('button');
+  btn.className = 'fc-filter-btn' + (e === 'Wszystkie' ? ' active' : '');
+  btn.textContent = e === 'Wszystkie' ? '🎯 Wszystkie epoki' : e;
+  btn.onclick = () => {
+    fcCategory = e;
+    document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    resetDeck();
+  };
+  fcFil.appendChild(btn);
+});
+
+function buildDeck() {
+  const pool = fcCategory === 'Wszystkie' ? DATA : DATA.filter(d => d.epoka === fcCategory);
+  fcDeck = [...pool];
+  fcIndex = 0; known = []; unknown = [];
+  updateStats();
+}
+
+function shuffleDeck() {
+  for (let i = fcDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [fcDeck[i], fcDeck[j]] = [fcDeck[j], fcDeck[i]];
+  }
+  fcIndex = 0; loadCard();
+}
+
+function resetDeck() { buildDeck(); loadCard(); }
+
+function loadCard() {
+  const card = document.getElementById('flashcard');
+  card.classList.remove('flipped');
+  fcFlipped = false;
+  document.getElementById('fc-score').style.display = 'none';
+  document.getElementById('fc-hint').style.display = 'block';
+  if (fcDeck.length === 0) {
+    document.getElementById('fc-q').textContent = 'Brak kart w tej kategorii.';
+    document.getElementById('fc-a').textContent = '';
+    document.getElementById('fc-lektura').textContent = '';
+    document.getElementById('fc-prog').textContent = '';
+    return;
+  }
+  if (fcIndex >= fcDeck.length) {
+    document.getElementById('fc-q').textContent = 'Koniec talii! Kliknij Resetuj, aby zacząć od nowa.';
+    document.getElementById('fc-a').textContent = '';
+    document.getElementById('fc-prog').textContent = `Ukończono · znam: ${known.length}, nie znam: ${unknown.length}`;
+    document.getElementById('fc-lektura').textContent = '';
+    return;
+  }
+  const d = fcDeck[fcIndex];
+  document.getElementById('fc-q').textContent = d.krotkie;
+  document.getElementById('fc-a').textContent = d.odpowiedz.slice(0, 2).join(' · ');
+  document.getElementById('fc-lektura').textContent = d.lektura + ' · ' + d.epoka;
+  document.getElementById('fc-prog').textContent = `Karta ${fcIndex + 1} z ${fcDeck.length}`;
+  updateStats();
+}
+
+function flipCard() {
+  const card = document.getElementById('flashcard');
+  card.classList.toggle('flipped');
+  fcFlipped = !fcFlipped;
+  document.getElementById('fc-hint').style.display = 'none';
+  document.getElementById('fc-score').style.display = fcFlipped ? 'flex' : 'none';
+}
+
+function rateCard(isKnown) {
+  if (fcIndex < fcDeck.length) {
+    if (isKnown) known.push(fcDeck[fcIndex]);
+    else unknown.push(fcDeck[fcIndex]);
+  }
+  fcIndex++;
+  document.getElementById('flashcard').classList.remove('flipped');
+  fcFlipped = false;
+  setTimeout(loadCard, 300);
+}
+
+function fcNext() { if (fcIndex < fcDeck.length - 1) { fcIndex++; loadCard(); } }
+function fcPrev() { if (fcIndex > 0) { fcIndex--; loadCard(); } }
+
+function updateStats() {
+  document.getElementById('stat-know').textContent = known.length;
+  document.getElementById('stat-dontknow').textContent = unknown.length;
+  document.getElementById('stat-left').textContent = Math.max(0, fcDeck.length - fcIndex);
+}
+
+buildDeck(); loadCard();
+
+// LEKTURY
+const LEKTURY = [
+  {tytul:'Dziady część III',autor:'Adam Mickiewicz',epoka:'Romantyzm',pytania:9,priorytet:'high',tematy:['mesjanizm','wolność','Bóg','samotność','zaborcy','sny','biblijność','dobro vs zło'],opis:'NAJWAŻNIEJSZA lektura -- 9 pytań. Najszerzej reprezentowana. Konteksty do prawie wszystkiego.'},
+  {tytul:'Lalka',autor:'Bolesław Prus',epoka:'Pozytywizm',pytania:6,priorytet:'high',tematy:['miłość','praca','majątek','miasto','wspomnienia','marzenia'],opis:'6 pytań -- kluczowa dla pozytywizmu. Bogata problematyka społeczna.'},
+  {tytul:'Przedwiośnie',autor:'Stefan Żeromski',epoka:'Dwudziestolecie',pytania:6,priorytet:'high',tematy:['tytuł','wojna','utopia','młodość','autorytet','klasy'],opis:'6 pytań -- temat odbudowy Polski po zaborach. Wiele aspektów tożsamości.'},
+  {tytul:'Zbrodnia i kara',autor:'Fiodor Dostojewski',epoka:'Realizm',pytania:5,priorytet:'high',tematy:['wina','kara','słabości','przemiana','poświęcenie','determinizm'],opis:'5 pytań -- psychologia, moralność. Świetne konteksty z Makbetem.'},
+  {tytul:'Wesele',autor:'Stanisław Wyspiański',epoka:'Młoda Polska',pytania:5,priorytet:'high',tematy:['klasy','wolność','symbole','taniec','sen o Polsce'],opis:'5 pytań. Dramat symboliczny -- wymaga dobrego opanowania.'},
+  {tytul:'Biblia (fragmenty)',autor:'Pismo Święte',epoka:'Antyk/Biblia',pytania:3,priorytet:'high',tematy:['cierpienie','niestałość','apokalipsa','śmierć','Bóg'],opis:'3 pytania, ale kontekst do prawie wszystkich innych lektur. Obowiązkowy.'},
+  {tytul:'Mitologia',autor:'Jan Parandowski',epoka:'Antyk/Biblia',pytania:3,priorytet:'high',tematy:['poświęcenie','wina/kara','miłość','heroizm','los'],opis:'Bogata w konteksty. Tematy powtarzają się w całej liście jawnych.'},
+  {tytul:'Szekspir, Makbet',autor:'William Szekspir',epoka:'Renesans/Barok',pytania:3,priorytet:'high',tematy:['odpowiedzialność','los','władza','ambicja','sumienie'],opis:'3 pytania -- sumienie, władza, los. Świetny kontekst do Zbrodni i kary.'},
+  {tytul:'Rok 1984',autor:'George Orwell',epoka:'Współczesność',pytania:4,priorytet:'high',tematy:['totalitaryzm','wolność','propaganda','nowomowa','utopia'],opis:'4 pytania -- totalitaryzm, wolność. Bardzo aktualne konteksty.'},
+  {tytul:'Dżuma',autor:'Albert Camus',epoka:'Współczesność',pytania:4,priorytet:'high',tematy:['poświęcenie','cierpienie','przyjaźń','zło','egzystencjalizm'],opis:'4 pytania -- egzystencjalizm, solidarność.'},
+  {tytul:'Antygona',autor:'Sofokles',epoka:'Antyk/Biblia',pytania:2,priorytet:'high',tematy:['prawo','przeznaczenie','bunt','tragizm'],opis:'2 pytania. Klasyczny konflikt tragedii -- szeroki kontekst do całej listy.'},
+  {tytul:'Tango',autor:'Sławomir Mrożek',epoka:'Współczesność',pytania:3,priorytet:'med',tematy:['bunt','pokolenia','normy','władza'],opis:'3 pytania. Dramat absurdu -- powiązany z Górą Edek.'},
+  {tytul:'Zdążyć przed Panem Bogiem',autor:'Hanna Krall',epoka:'Współczesność',pytania:3,priorytet:'med',tematy:['godność','Zagłada','walka o życie'],opis:'3 pytania. Reportaż o Holokauście -- ważny temat historyczny.'},
+  {tytul:'Ferdydurke (fragmenty)',autor:'Witold Gombrowicz',epoka:'Dwudziestolecie',pytania:2,priorytet:'med',tematy:['groteska','presja otoczenia','forma','tożsamość'],opis:'2 pytania -- groteska, presja. Kontekst do Roku 1984.'},
+  {tytul:'Inny świat (fragmenty)',autor:'Gustaw Herling-Grudziński',epoka:'Literatura wojenna',pytania:2,priorytet:'med',tematy:['tytuł','zniewolenie','godność','łagier'],opis:'2 pytania -- łagier sowiecki. Kontekst do Borowskiego i Orwella.'},
+  {tytul:'Proszę państwa do gazu',autor:'Tadeusz Borowski',epoka:'Literatura wojenna',pytania:1,priorytet:'med',tematy:['obóz','człowiek zlagrowany','system','odczłowieczenie'],opis:'1 pytanie, ale bardzo ważne. Kontekst do Orwella i Hanny Krall.'},
+  {tytul:'Homer, Iliada (fragmenty)',autor:'Homer',epoka:'Antyk/Biblia',pytania:1,priorytet:'med',tematy:['heroizm','los','honor'],opis:'1 pytanie, ale temat heroizmu wraca wielokrotnie w liście jawnych.'},
+  {tytul:'Chłopi (fragmenty)',autor:'W. S. Reymont',epoka:'Młoda Polska',pytania:1,priorytet:'med',tematy:['tradycja','obyczaj','wieś','wspólnota'],opis:'1 pytanie. Ważny kontekst do Wesela i kwestii społecznych.'},
+  {tytul:'Potop (fragmenty)',autor:'Henryk Sienkiewicz',epoka:'Pozytywizm',pytania:1,priorytet:'med',tematy:['odwaga','tchórzostwo','bohaterstwo','przemiana'],opis:'1 pytanie. Kontekst do tematów heroizmu i postawy moralnej.'},
+];
+
+const priLabels = {high:'Kluczowa', med:'Ważna'};
+document.getElementById('lektury-list').innerHTML = LEKTURY.map(l => {
+  const pct = Math.min(100, Math.round(l.pytania / 9 * 100));
+  return `<div class="lektura-card">
+    <div class="lk-top">
+      <div>
+        <div class="lk-title">${l.tytul}<span class="lk-priority ${l.priorytet}">${priLabels[l.priorytet]}</span></div>
+        <div class="lk-author">${l.autor}</div>
+      </div>
+      <span class="lk-epoka ${epochClass[l.epoka]||'ep-antyk'}">${l.epoka}</span>
+    </div>
+    <div class="lk-info"><strong>${l.pytania}</strong> ${l.pytania===1?'pytanie na egzaminie':'pytań na egzaminie'} &mdash; ${l.opis}</div>
+    <div class="lk-bar"><div class="lk-bar-fill" style="width:${pct}%"></div></div>
+    <div class="lk-themes">${l.tematy.map(t=>`<span class="lk-theme">${t}</span>`).join('')}</div>
+  </div>`;
+}).join('');
+</script>
+</body>
+</html>
